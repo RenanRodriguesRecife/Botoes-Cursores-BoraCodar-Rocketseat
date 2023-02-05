@@ -16,14 +16,22 @@
     <div id="app">
         <h1>Teste os botões</h1>
         <p>Interaja com os botões e observe a mudança de aparência e de cursores</p>
-        <div class="menu-buttons" onclick="loading(event)">
-            <button class="primary">Interaja Comigo</button>
+        <div class="buttons">
+            <button class="primary" onclick="loading(event)">Interaja Comigo</button>
             <button class="secondary">Interaja Comigo</button>
-            <button class="tertiary movable">
-                <i class="ph-list">Interaja Comigo</i>
-            </button>
+            <button class="tertiary movable"><i class="ph-list">Interaja Comigo</i></button>
         </div>
     </div>
-    <button>Default Primary</button>
+    <script>
+        function loading(event){
+            const button = event.currentTarget
+            button.classList.add('loading')
+            const text = button.textContent
+            button.innerHTML = `
+            <i class="ph-circle-notch"></i>
+            ${text}
+            `
+        }
+    </script>
 </body>
 </html>
